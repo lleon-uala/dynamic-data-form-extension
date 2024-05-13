@@ -3,6 +3,7 @@
 Welcome to the form-data backend plugin! This plugin is a [Backstage Backend Plugin](https://backstage.io/docs/plugins/backend-plugin) that allow you to write custom providers to add custom logic and build the data to be shown on the `dynamic-field-extension` for example for APIs that require authentication or to parse data that doesn't come on the required JSON Array String format.
 
 ## Installation
+Read on how to install packages from GitHub Packages https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package
 
 ```
 cd packages/backend/
@@ -35,9 +36,14 @@ export default async function createPlugin(
 }
 ```
 
-Create a `providers` folder under `packages/backend/src` containing all of your custom providers for example:
+Create a `providers` folder under `packages/backend/src` containing all of your custom providers:
+`packages/backend/src/providers/index.ts`
+```ts
+# Add here other custom providers
+export * from './example.ts';
+```
 
-`example.ts`
+`packages/backend/src/providers/example.ts`
 ```ts
 import express from 'express';
 import Router from 'express-promise-router';
